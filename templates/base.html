@@ -140,11 +140,8 @@
 
               <!-- shopping cart -->
               <div class="cart-mainf">
-                <div class="hubcart hubcart2 cart cart box_1">
-                  <form action="#" method="post">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="display" value="1" />
-                    <button
+                    <a href="{% url 'usercart' %}">
+                      <button
                       class="btn top_hub_cart mt-1"
                       type="submit"
                       name="submit"
@@ -153,7 +150,8 @@
                     >
                       <i class="fas fa-shopping-bag"></i>
                     </button>
-                  </form>
+                    </a>
+                    
                 </div>
               </div>
               <!-- //shopping cart ends here -->
@@ -187,12 +185,12 @@
               {% for i in category %}
               <li
                 class="nav-item dropdown has-mega-menu"
-                style="position: relative "
+                style="position: relative"
               >
                 <a
                   class="nav-link dropdown-toggle"
                   data-toggle="dropdown"
-                  href="#"
+                  href="{% url 'products' i.id %}"
                   role="button"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -203,7 +201,11 @@
                     <div class="row">
                       <div class="col-md-4">
                         {% for j in subCategory %} {% if i.id == j.cat.id %}
-                        <a class="dropdown-item" href="">{{ j.name }}</a>
+                        <a
+                          class="dropdown-item"
+                          href="{% url 'products' i.id %}"
+                          >{{ j.name }}</a
+                        >
                         {% endif %} {% endfor %}
                       </div>
                     </div>

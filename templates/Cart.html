@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block body %} {% load static %}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Product Name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in cart %}
+    <tr>
+      <td>&#8377; {{ i.product.name }}</td>
+      <td>&#8377; {{ i.product.sp }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <th>Total</th>
+      <td>&#8377; {{ total }}</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <button type="button" class="btn btn-primary">
+          Primary
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
