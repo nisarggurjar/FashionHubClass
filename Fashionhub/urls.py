@@ -28,4 +28,6 @@ urlpatterns = [
     path('SingleProduct/<int:pid>', SingleProduct, name='single'),
     path('cart/<int:pid>',AddToCart, name='cart'),
     path('Cart/', UserCart, name='usercart'),
+    path('payment/', Payment, name='payment'),
+    path('payment_check/', payment_check, name='paymentcheck'),
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -45,3 +45,7 @@ class ContactForm(models.Model):
 
     def __str__(self):
         return self.name
+
+class Payment_ids(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    ids = models.CharField(max_length=100,null=True)
