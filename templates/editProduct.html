@@ -1,0 +1,43 @@
+{% extends "base2.html" %} {% block body %} {% load static %}
+
+  <h1 style:"text-align:center">Edit Product</h1>
+  <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="Title">Enter Sub - Category</label>
+      <select name="subCat" id="">
+          {% for i in subCat %}
+            {% if product.sub_cat.id == i.id %}
+            <option value="{{ i.id }}" selected>{{ i.name }}</option>
+            {% else %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+            {% endif %}
+            
+          {% endfor %}
+      </select>
+      <br><br>
+      <label for="">Name</label>
+      <input type="text" value="{{ product.name }}" name="name">
+      <br><br>
+      <label for="">discription</label>
+      <textarea name="dis" id="" placeholder="{{ product.discription }}" cols="30" rows="1"></textarea>
+      <br><br>
+      <label for="">MRP</label>
+      <input type="number" value="{{ product.mrp }}" name="mrp" id="">
+      <br><br>
+      <label for="">SP</label>
+      <input type="number" value="{{ product.sp }}" name="sp" id="">
+      <br><br>
+      <label for="">Image 1</label>
+      <input type="file" value="{{ product.img1.url }}" name="img1" id="">
+      <br><br>
+      <label for="">Image 2</label>
+      <input type="file" value="{{ product.img1.url }}" name="img2" id="">
+      <br><br>
+      <label for="">Image 3</label>
+      <input type="file" value="{{ product.img1.url }}" name="img3" id="">
+      <br><br>
+      <input type="submit" class="btn btn-primary" value="Edit Product" name="editproduct">
+  </form>
+  
+  
+{% endblock %}

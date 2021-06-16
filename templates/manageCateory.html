@@ -1,0 +1,30 @@
+{% extends "base2.html" %} {% block body %} {% load static %}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Category Name</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in categories %}
+    <tr>
+      <td>{{ i.title }}</td>
+      <td><a class="btn btn-primary" href="">Edit</a></td>
+      <td><a class="btn btn-danger" href="{% url 'deleteCategory' i.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h1 style:"text-align:center">Add Category</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="Title">Enter Category Name</label>
+    <input type="text" name="cat">
+    <input type="submit" class="btn btn-primary" value="Add Category" name="addCat">
+</form>
+
+{% endblock %}

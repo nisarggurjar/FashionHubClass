@@ -79,3 +79,5 @@ def payment_check(request):
         return redirect('usercart')
     else:
         return HttpResponse("Payment Failed")
+
+
